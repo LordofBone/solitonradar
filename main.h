@@ -123,13 +123,6 @@ void loop()
     display.println("+");
   }
 
-  // If no movement is detected, display a dash.
-//  else if (state == LOW) {
-//    digitalWrite(ledOut, state);    // Turn off led.
-//    display.setCursor(0, 0);
-//    display.println("-");
-//  }
-
   // In the bottom left hand corner display the range of the wall/motion detection.
   display.setCursor(116, 25);
   maxRangeM = maxRange / 100;
