@@ -48,6 +48,12 @@ void setup()
   // Define inputs and outputs.
   pinMode(trigPinF, OUTPUT);
   pinMode(echoPinF, INPUT);
+  pinMode(trigPinB, OUTPUT);
+  pinMode(echoPinB, INPUT);
+  pinMode(trigPinR, OUTPUT);
+  pinMode(echoPinR, INPUT);
+  pinMode(trigPinL, OUTPUT);
+  pinMode(echoPinL, INPUT);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // Initialize with the I2C addr 0x3C (for the 128x32).
 
   // Set default text size and colour.
