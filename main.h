@@ -50,9 +50,9 @@ void setup()
   pinMode(echoPinF, INPUT);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // Initialize with the I2C addr 0x3C (for the 128x32).
 
+  // Set default text size and colour.
   display.setTextSize(1);
   display.setTextColor(WHITE);
-  
 }
 
 void loop()
