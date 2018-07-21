@@ -75,7 +75,8 @@ void loop()
   cmRangeFrontDown = (((double)cm / (double)maxRange) * (screenHeight / 2)) + 0.5; // Calculate the 0 > 1 decimal of the range against the maximum range of the sensor and times by half the screen height - finally adding 0.5 to round up.
   cmRangeFront = 16 - (int)cmRangeFrontDown; // Finally minus the number calculated above from half the screen height, so that the line will move closer to the center of the screen - the center being 0cm range.
 
-  if (debugMode == true) {
+  if (debugMode == true) 
+  {
     display.setCursor(0, 20);
     display.println((String)cm);
   }
@@ -85,7 +86,8 @@ void loop()
   cmRangeBackDown = (((double)cm / (double)maxRange) * (screenHeight / 2)) + 0.5; // Calculate the 0 > 1 decimal of the range against the maximum range of the sensor and times by half the screen height - finally adding 0.5 to round up.
   cmRangeBack = 15 + (int)cmRangeBackDown; // Finally add the number calculated above to half the screen height, so that the line will move closer to the center of the screen - the center being 0cm range.
 
-  if (debugMode == true) {
+  if (debugMode == true) 
+  {
     display.setCursor(30, 20);
     display.println((String)cm);
   }
@@ -93,9 +95,10 @@ void loop()
   // Measure distance to object from right-facing ultrasonic sensor.
   cm = distance(trigPinR, echoPinR); // Call distance measure function with trigger/echo pins for right sensor
   cmRangeRightDown = (((double)cm / (double)maxRange) * (screenWidth / 2)) + 0.5; // Calculate the 0 > 1 decimal of the range against the maximum range of the sensor and times by half the screen width - finally adding 0.5 to round up.
-  cmRangeRight = 64 + (int)cmRangeRightDown; // Finally minus the number calculated above from half the screen width, so that the line will move closer to the center of the screen - the center being 0cm range.
+  cmRangeRight = 64 + (int)cmRangeRightDown; // Finally add the number calculated above to half the screen width, so that the line will move closer to the center of the screen - the center being 0cm range.
 
-  if (debugMode == true) {
+  if (debugMode == true) 
+  {
     display.setCursor(60, 20);
     display.println((String)cm);
   }
@@ -103,15 +106,17 @@ void loop()
   // Measure distance to object from left-facing ultrasonic sensor.
   cm = distance(trigPinL, echoPinL); // Call distance measure function with trigger/echo pins for left sensor
   cmRangeLeftDown = (((double)cm / (double)maxRange) * (screenWidth / 2)) + 0.5; // Calculate the 0 > 1 decimal of the range against the maximum range of the sensor and times by half the screen width - finally adding 0.5 to round up.
-  cmRangeLeft = 63 - (int)cmRangeLeftDown; // Finally add the number calculated above to half the screen width, so that the line will move closer to the center of the screen - the center being 0cm range.
+  cmRangeLeft = 63 - (int)cmRangeLeftDown; // Finally minus the number calculated above from half the screen width, so that the line will move closer to the center of the screen - the center being 0cm range.
 
-  if (debugMode == true) {
+  if (debugMode == true) 
+  {
     display.setCursor(90, 20);
     display.println((String)cm);
   }
 
   // Debug mode to display numbers of positions on screen .
-  if (debugMode == true) {
+  if (debugMode == true) 
+  {
     display.setCursor(0, 0);
     display.setCursor(0, 10);
     display.println((String)cmRangeFront + " " + cmRangeBack + " " + cmRangeRight + " " + cmRangeLeft);
@@ -122,7 +127,8 @@ void loop()
 
   // When a moving object is detected, the ledout is automatically closed after the light 2S, the next trigger can be carried out, and no need to reset. Convenient debugging.
   // When movement is detected display that motion has been detected on-screen.
-  if (state == HIGH) {
+  if (state == HIGH) 
+  {
     state = LOW;
     digitalWrite(ledOut, state);    // Turn off led.
     display.setCursor(0, 0);
@@ -140,14 +146,16 @@ void loop()
 }
 
 // Function for drawing both horizontal and both vertical lines by their x, y coords as calculated.
-void drawLines(int cmRangeF, int cmRangeB, int cmRangeR, int cmRangeL) {
+void drawLines(int cmRangeF, int cmRangeB, int cmRangeR, int cmRangeL) 
+{
   display.drawLine(0, cmRangeF, 128, cmRangeF, WHITE);
   display.drawLine(0, cmRangeB, 128, cmRangeB, WHITE);
   display.drawLine(cmRangeR, 0, cmRangeR, 32, WHITE);
   display.drawLine(cmRangeL, 0, cmRangeL, 32, WHITE);
 }
 
-long distance(int triggerP, int echoP) {
+long distance(int triggerP, int echoP) 
+{
   // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse.
   digitalWrite(triggerP, LOW);
